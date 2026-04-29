@@ -49,6 +49,12 @@
             padding-bottom: 30px;
         }
 
+        /* Убираем отступы для секций с фото */
+        .no-padding {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
         .block-one {
             padding: 0;
             width: 100%;
@@ -57,10 +63,9 @@
             background-size: cover;
         }
 
-        /* Уменьшенный блок музыки */
         .music-strip {
             background-color: var(--bg-light);
-            padding: 15px 0;
+            padding: 12px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -71,19 +76,19 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             cursor: pointer;
         }
 
         .music-icon {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             fill: var(--accent);
         }
 
         .music-text {
             font-family: var(--font-style);
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--accent);
@@ -104,7 +109,6 @@
             font-weight: 400;
         }
 
-        /* Место проведения на фоне бумаги */
         .location-section {
             background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
             background-color: #f0eed8;
@@ -112,14 +116,13 @@
         }
 
         .swiper { width: 100%; aspect-ratio: 4/5; margin-bottom: 30px; }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .loc-item { margin-bottom: 35px; text-align: center; padding: 0 25px; }
         .loc-name { font-family: var(--font-style); font-size: 24px; color: var(--gold); margin-bottom: 8px; font-style: italic; }
         .loc-address { font-size: 17px; line-height: 1.5; color: var(--accent); }
         .city-highlight { display: block; font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 4px; color: var(--accent); }
 
-        /* Стили анкеты */
         .form-section {
             padding: 40px 25px;
             background-color: rgba(178, 148, 94, 0.05);
@@ -166,9 +169,8 @@
         </div>
     </div>
 
-    <section class="image-block"><img src="2.jpg" alt=""></section>
-
-    <section class="image-block"><img src="7.jpg" alt="Дата проведения"></section>
+    <section class="image-block no-padding"><img src="2.jpg" alt=""></section>
+    <section class="image-block no-padding"><img src="7.jpg" alt="Дата проведения"></section>
 
     <section class="location-section">
         <h2 class="section-title">Место проведения</h2>
@@ -193,9 +195,9 @@
         </div>
     </section>
 
-    <section class="image-block"><img src="3.jpg"></section>
-
-    <section class="image-block"><img src="4.jpg"></section>
+    <section class="image-block no-padding"><img src="3.jpg"></section>
+    <section class="image-block no-padding"><img src="4.jpg"></section>
+    <section class="image-block no-padding"><img src="6.jpg"></section>
 
     <section class="form-section">
         <h2 class="section-title">Анкета гостя</h2>
