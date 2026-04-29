@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Приглашение на свадьбу</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --accent: #1a1a1a;   
+            --gold: #b2945e;     
+            --bg-light: #f2f1df; 
+            --font-main: 'Forum', serif;
+            --font-style: 'Cormorant Garamond', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            width: 100%;
+            background-color: #000;
+            font-family: var(--font-main);
+            scroll-behavior: smooth;
+            overflow-x: hidden; 
+            color: var(--accent);
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        section {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .block-one {
+            padding: 0;
+            width: 100%;
+            height: 100vh; 
+            background: url('1.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Уменьшенный блок музыки */
+        .music-strip {
+            background-color: var(--bg-light);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .music-control {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .music-icon {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        .music-text {
+            font-family: var(--font-style);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-style);
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        /* Место проведения на фоне бумаги */
+        .location-section {
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+            background-color: #f0eed8;
+            padding-bottom: 50px;
+        }
+
+        .swiper { width: 100%; aspect-ratio: 4/5; margin-bottom: 30px; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+        .loc-item { margin-bottom: 35px; text-align: center; padding: 0 25px; }
+        .loc-name { font-family: var(--font-style); font-size: 24px; color: var(--gold); margin-bottom: 8px; font-style: italic; }
+        .loc-address { font-size: 17px; line-height: 1.5; color: var(--accent); }
+        .city-highlight { display: block; font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 4px; color: var(--accent); }
+
+        /* Стили анкеты */
+        .form-section {
+            padding: 40px 25px;
+            background-color: rgba(178, 148, 94, 0.05);
+            border-top: 1px solid rgba(178, 148, 94, 0.2);
+        }
+        .anketa-form { display: flex; flex-direction: column; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-family: var(--font-style); font-size: 18px; color: var(--accent); }
+        .anketa-form input[type="text"] {
+            background: transparent; border: none; border-bottom: 1px solid var(--gold);
+            padding: 10px 5px; font-family: var(--font-main); font-size: 16px; outline: none; color: var(--accent);
+        }
+        .radio-group { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
+        .radio-item { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 16px; }
+        .radio-item input { accent-color: var(--gold); width: 18px; height: 18px; }
+        .submit-btn {
+            margin-top: 20px; background-color: var(--gold); color: white; border: none;
+            padding: 15px; font-family: var(--font-style); font-size: 17px;
+            letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: 0.3s;
+        }
+
+        .final-section { padding: 50px 20px 80px; text-align: center; }
+        .story-text { font-family: var(--font-style); font-size: 20px; line-height: 1.6; margin-bottom: 40px; font-style: italic; }
+        
+        .timer-display { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .timer-unit .val { font-family: var(--font-style); font-size: 32px; color: var(--gold); display: block; }
+        .timer-unit .lab { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+        
+        .signature { font-family: var(--font-style); font-size: 34px; color: var(--gold); margin-top: 20px; }
+
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+        .playing .music-icon { animation: pulse 2s infinite ease-in-out; fill: var(--gold); }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <section class="block-one"></section>
+
+    <div class="music-strip">
+        <div class="music-control" id="musicBtn" onclick="toggleMusic()">
+            <svg class="music-icon" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            <span class="music-text" id="statusText">музыка</span>
+        </div>
+    </div>
+
+    <section class="image-block"><img src="2.jpg" alt=""></section>
+
+    <section class="image-block"><img src="7.jpg" alt="Дата проведения"></section>
+
+    <section class="location-section">
+        <h2 class="section-title">Место проведения</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="место1.jpeg"></div>
+                <div class="swiper-slide"><img src="место2.jpeg"></div>
+                <div class="swiper-slide"><img src="место3.jpeg"></div>
+            </div>
+        </div>
+        <div class="loc-item">
+            <div class="loc-name">Регистрация</div>
+            <div class="loc-address"><span class="city-highlight">г. Несвиж</span>ул. Советская, 3 (Ратуша)</div>
+        </div>
+        <div class="loc-item">
+            <div class="loc-name">Шлюб</div>
+            <div class="loc-address"><span class="city-highlight">г. Несвиж</span>Костёл «Божага цела»</div>
+        </div>
+        <div class="loc-item">
+            <div class="loc-name">Банкет</div>
+            <div class="loc-address"><span class="city-highlight">г. Городея</span>Ресторан «Трактир для друзей»</div>
+        </div>
+    </section>
+
+    <section class="image-block"><img src="3.jpg"></section>
+
+    <section class="image-block"><img src="4.jpg"></section>
+
+    <section class="form-section">
+        <h2 class="section-title">Анкета гостя</h2>
+        <p style="text-align: center; margin-bottom: 20px; font-style: italic; opacity: 0.8; font-size: 14px;">Будем признательны за ответ до 1 июля</p>
+        <form class="anketa-form">
+            <div class="form-group">
+                <label>Ваше имя и фамилия</label>
+                <input type="text" name="name" placeholder="Введите ответ" required>
+            </div>
+            <div class="form-group">
+                <label>Придете ли вы?</label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="presence" value="yes"> Я приду / Мы придем</label>
+                    <label class="radio-item"><input type="radio" name="presence" value="no"> К сожалению, не смогу</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Ваши предпочтения по напиткам</label>
+                <input type="text" name="drinks" placeholder="Вино, шампанское, крепкое...">
+            </div>
+            <button type="submit" class="submit-btn">Подтвердить участие</button>
+        </form>
+    </section>
+
+    <section class="final-section">
+        <div class="story-text">Долго ли, коротко ли,<br>а дело к празднику шло...</div>
+        <div class="timer-display" id="timer">
+            <div class="timer-unit"><span class="val" id="d">00</span><span class="lab" id="d-label">дней</span></div>
+            <div class="timer-unit"><span class="val" id="h">00</span><span class="lab" id="h-label">часов</span></div>
+            <div class="timer-unit"><span class="val" id="m">00</span><span class="lab" id="m-label">минут</span></div>
+            <div class="timer-unit"><span class="val" id="s">00</span><span class="lab" id="s-label">секунд</span></div>
+        </div>
+        <div class="signature">Евгений и Анна</div>
+    </section>
+</div>
+
+<audio id="bgMusic" src="песня.mp3" loop></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3500 } });
+    const music = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicBtn');
+    let isPlaying = false;
+
+    function toggleMusic() {
+        if (isPlaying) { 
+            music.pause(); btn.classList.remove('playing'); 
+            document.getElementById('statusText').textContent = 'музыка'; 
+        } else { 
+            music.play().catch(e => console.log("Music error"));
+            btn.classList.add('playing'); 
+            document.getElementById('statusText').textContent = 'играет'; 
+        }
+        isPlaying = !isPlaying;
+    }
+
+    function getDeclension(number, titles) {
+        const cases = [2, 0, 1, 1, 1, 2];
+        return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+    }
+
+    function countdown() {
+        const target = new Date("August 1, 2026 00:00:00").getTime();
+        const now = new Date().getTime();
+        const diff = target - now;
+        if (diff <= 0) return;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById("d").innerText = days; document.getElementById("h").innerText = hours;
+        document.getElementById("m").innerText = minutes; document.getElementById("s").innerText = seconds;
+        document.getElementById("d-label").innerText = getDeclension(days, ['день', 'дня', 'дней']);
+        document.getElementById("h-label").innerText = getDeclension(hours, ['час', 'часа', 'часов']);
+        document.getElementById("m-label").innerText = getDeclension(minutes, ['минута', 'минуты', 'минут']);
+        document.getElementById("s-label").innerText = getDeclension(seconds, ['секунда', 'секунды', 'секунд']);
+    }
+    setInterval(countdown, 1000); countdown();
+</script>
+</body>
+</html>
